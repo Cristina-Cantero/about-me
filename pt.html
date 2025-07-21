@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Barra de Navegação</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Variable:opsz,wght@8..60,200..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Source Serif Variable', serif;
+      background: #fff;
+      cursor: default;
+    }
+    .navbar {
+      background: #dad964;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+    }
+    .navbar-buttons {
+      display: flex;
+      gap: 24px;
+      justify-content: flex-start;
+    }
+    .navbar-button {
+      color: #fff;
+      background: #3d3c3a;
+      border: none;
+      font-size: 1rem;
+      padding: 10px 28px;
+      min-width: 120px;
+      max-width: 180px;
+      width: auto;
+      cursor: pointer !important;
+      transition: background 0.2s;
+      border-radius: 24px;
+      text-align: center;
+      margin: 0;
+    }
+    .navbar-button:hover {
+      background: #222;
+    }
+
+    /* Chat Backdrop */
+    #chatModalBackdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+    }
+
+    /* Chat Modal */
+    #chatModal {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 600px;
+      height: 500px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    #chatModal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
+    }
+
+    #chatModalClose {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer !important;
+      z-index: 10000;
+      color: #444;
+    }
+
+    /* Language Dropdown Hover Effect */
+    .dropdown-item:hover {
+      background: #222;
+      cursor: pointer !important;
+    }
+   
+   /* Ensure all clickable elements show pointer cursor */
+   button, [onclick], [style*="cursor: pointer"] {
+     cursor: pointer !important;
+   }
+  </style>
+</head>
+<body>
+  <div id="languageDropdown" style="position: fixed; top: 0; right: 0; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 1001; font-size: 2rem; cursor: pointer !important;">
+    🌍
+    <div id="dropdownMenu" style="position: absolute; top: 100%; right: 0; background: #3d3c3a; border-radius: 8px; padding: 8px 0; margin-top: 8px; display: none; min-width: 120px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+      <div class="dropdown-item" style="padding: 8px 16px; color: #fff; font-family: 'Source Serif Variable', serif; font-size: 0.9rem; cursor: pointer !important; transition: background 0.2s;">Espanhol</div>
+      <div class="dropdown-item" style="padding: 8px 16px; color: #fff; font-family: 'Source Serif Variable', serif; font-size: 0.9rem; cursor: pointer !important; transition: background 0.2s;">Francês</div>
+      <div class="dropdown-item" style="padding: 8px 16px; color: #fff; font-family: 'Source Serif Variable', serif; font-size: 0.9rem; cursor: pointer !important; transition: background 0.2s;">Italiano</div>
+      <div class="dropdown-item" style="padding: 8px 16px; color: #fff; font-family: 'Source Serif Variable', serif; font-size: 0.9rem; cursor: pointer !important; transition: background 0.2s;">Português</div>
+      <div class="dropdown-item" style="padding: 8px 16px; color: #fff; font-family: 'Source Serif Variable', serif; font-size: 0.9rem; cursor: pointer !important; transition: background 0.2s;">Catalão</div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar-buttons">
+      <button class="navbar-button">SOBRE MIM</button>
+      <button class="navbar-button">EXPERIÊNCIA</button>
+      <button class="navbar-button">EDUCAÇÃO</button>
+    </div>
+  </nav>
+
+  <div style="background:#0e0e0e; padding:32px 32px 32px 24px; margin-top:60px; display:block; width:100%; min-height:320px; border-bottom: 4px solid #dad964; position:relative;">
+    <div style="display: flex; align-items: center; position:relative; z-index:2;">
+      <img src="photo.png" alt="Foto de Perfil" style="display:block; max-width:240px; border-radius:8px;">
+      <div style="margin-left: 40px; color: #fff; font-family: 'Source Serif Variable', serif;">
+        <div style="font-size: 2rem; font-weight: 700;">CRISTINA CANTERO MUÑOZ</div>
+        <div style="font-size: 1.1rem; margin-top: 12px;">"Traduzindo entre a inteligência humana e a inteligência artificial."</div>
+        <button id="chatWithCrisBtn" style="margin-top: 24px; padding: 12px 28px; font-size: 1rem; background: #dad964; color: #0e0e0e; border: none; border-radius: 24px; font-family: 'Source Serif Variable', serif; font-weight: 600; cursor: pointer !important; transition: background 0.2s;">CONVERSE COM A CRIS</button>
+      </div>
+    </div>
+    <img src="road.png" alt="Estrada" style="position:absolute; right:160px; top:0; max-width:320px; height:100%; object-fit:cover; border-radius:8px; z-index:1;">
+  </div>
+  <div style="background:#3d3c3a; width:100%; min-height:200px; margin:0; display:block; padding:32px 24px; color:#fff; font-family:'Source Serif Variable', serif;">
+    <div style="font-size:1.5rem; font-weight:700; margin-bottom:16px;">LÍDER DE LOCALIZAÇÃO</div>
+    <div style="font-size:1rem; line-height:1.6;">
+      · Liderei a expansão de 3 aplicativos de namoro para 18 novos mercados, resultando em um aumento de +10% nos cadastros e +2% no ROI.<br>
+      · Gerenciei uma equipe de 12 tradutores.<br>
+      · Criei uma estratégia de localização replicável em outros produtos.<br>
+      · Profissionalizei o processo de localização com a integração do Crowdin.
+    </div>
+  </div>
+
+  <!-- Chat Modal with Backdrop -->
+  <div id="chatModalBackdrop">
+    <div id="chatModal">
+      <button id="chatModalClose">&times;</button>
+      <iframe
+        src="https://app.relevanceai.com/agents/d7b62b/.../embed-chat?primary_color=%23dad964&bubble_style=agent&hide_logo=true&hide_description=false&hide_file_uploads=true&hide_conversation_list=true&input_placeholder_text=Escreva+sua+mensagem..."
+        allow="microphone"
+        style="width: 100%; height: 100%; border: none; border-radius: 12px;">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    const chatBtn = document.getElementById('chatWithCrisBtn');
+    const chatModal = document.getElementById('chatModal');
+    const chatBackdrop = document.getElementById('chatModalBackdrop');
+    const closeModal = document.getElementById('chatModalClose');
+
+    chatBtn.onclick = function () {
+      chatBackdrop.style.display = 'block';
+    };
+
+    closeModal.onclick = function () {
+      chatBackdrop.style.display = 'none';
+    };
+
+    window.onclick = function (event) {
+      if (event.target === chatBackdrop) {
+        chatBackdrop.style.display = 'none';
+      }
+    };
+
+    const languageDropdown = document.getElementById('languageDropdown');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    languageDropdown.onclick = function (event) {
+      event.stopPropagation();
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    };
+
+    // Close dropdown when clicking outside
+    document.onclick = function (event) {
+      if (!languageDropdown.contains(event.target)) {
+        dropdownMenu.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+</html>
