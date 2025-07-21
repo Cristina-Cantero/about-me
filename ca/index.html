@@ -192,5 +192,23 @@
       }
     };
   </script>
+  <script>
+  const languageLinks = [
+    'https://cristina-cantero.github.io/about-me/es',
+    'https://cristina-cantero.github.io/about-me/fr',
+    'https://cristina-cantero.github.io/about-me/it',
+    'https://cristina-cantero.github.io/about-me/pt/',
+    'https://cristina-cantero.github.io/about-me/ca'
+  ];
+
+  document.querySelectorAll('#dropdownMenu .dropdown-item').forEach((item, idx) => {
+    item.onclick = function(e) {
+      e.stopPropagation();
+      window.location.href = languageLinks[idx];
+    };
+  });
+</script>
+</body>
+</html>
 </body>
 </html>
