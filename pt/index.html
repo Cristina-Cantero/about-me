@@ -192,5 +192,27 @@
       }
     };
   </script>
+  <div id="languageDropdown">🌍
+  <div id="dropdownMenu">
+    <div class="dropdown-item" onclick="window.location.href='/about-me/es/'">Spanish</div>
+    ...
+  </div>
+</div>
+
+<script>
+  const languageDropdown = document.getElementById('languageDropdown');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+
+  languageDropdown.onclick = function (event) {
+    event.stopPropagation();
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  };
+
+  document.onclick = function (event) {
+    if (!languageDropdown.contains(event.target)) {
+      dropdownMenu.style.display = 'none';
+    }
+  };
+</script>
 </body>
 </html>
