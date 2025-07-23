@@ -47,7 +47,6 @@
     .navbar-button:hover {
       background: #222;
     }
-
     /* Chat Backdrop */
     #chatModalBackdrop {
       display: none;
@@ -56,7 +55,6 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: 9998;
     }
-
     /* Chat Modal */
     #chatModal {
       position: fixed;
@@ -72,14 +70,12 @@
       z-index: 9999;
       overflow: hidden;
     }
-
     #chatModal iframe {
       width: 100%;
       height: 100%;
       border: none;
       border-radius: 12px;
     }
-
     #chatModalClose {
       position: absolute;
       top: 8px;
@@ -91,20 +87,19 @@
       z-index: 10000;
       color: #444;
     }
-
     /* Language Dropdown Hover Effect */
     .dropdown-item:hover {
       background: #222;
       cursor: pointer !important;
     }
-   
-   /* Ensure all clickable elements show pointer cursor */
-   button, [onclick], [style*="cursor: pointer"] {
-     cursor: pointer !important;
-   }
+    /* Ensure all clickable elements show pointer cursor */
+    button, [onclick], [style*="cursor: pointer"] {
+      cursor: pointer !important;
+    }
   </style>
 </head>
 <body>
+  <!-- Language Dropdown (only once) -->
   <div id="languageDropdown" style="position: fixed; top: 0; right: 0; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; z-index: 1001; font-size: 2rem; cursor: pointer !important;">
     🌍
     <div id="dropdownMenu" style="position: absolute; top: 100%; right: 0; background: #3d3c3a; border-radius: 8px; padding: 8px 0; margin-top: 8px; display: none; min-width: 120px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
@@ -158,61 +153,56 @@
   </div>
 
   <script>
+    // Chat modal logic
     const chatBtn = document.getElementById('chatWithCrisBtn');
     const chatModal = document.getElementById('chatModal');
     const chatBackdrop = document.getElementById('chatModalBackdrop');
     const closeModal = document.getElementById('chatModalClose');
 
-    chatBtn.onclick = function () {
-      chatBackdrop.style.display = 'block';
-    };
-
-    closeModal.onclick = function () {
-      chatBackdrop.style.display = 'none';
-    };
-
-    window.onclick = function (event) {
-      if (event.target === chatBackdrop) {
+    if (chatBtn) {
+      chatBtn.onclick = function () {
+        chatBackdrop.style.display = 'block';
+      };
+    }
+    if (closeModal) {
+      closeModal.onclick = function () {
         chatBackdrop.style.display = 'none';
-      }
-    };
+      };
+    }
+    if (chatBackdrop) {
+      window.onclick = function (event) {
+        if (event.target === chatBackdrop) {
+          chatBackdrop.style.display = 'none';
+        }
+      };
+    }
 
+    // Language dropdown logic
     const languageDropdown = document.getElementById('languageDropdown');
     const dropdownMenu = document.getElementById('dropdownMenu');
-
     languageDropdown.onclick = function (event) {
       event.stopPropagation();
       dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     };
-
-    // Close dropdown when clicking outside
     document.onclick = function (event) {
       if (!languageDropdown.contains(event.target)) {
         dropdownMenu.style.display = 'none';
       }
     };
+    // Language redirection
+    const languageLinks = [
+      'https://cristina-cantero.github.io/about-me/es',
+      'https://cristina-cantero.github.io/about-me/fr',
+      'https://cristina-cantero.github.io/about-me/it',
+      'https://cristina-cantero.github.io/about-me/pt/',
+      'https://cristina-cantero.github.io/about-me/ca'
+    ];
+    document.querySelectorAll('#dropdownMenu .dropdown-item').forEach((item, idx) => {
+      item.onclick = function(e) {
+        e.stopPropagation();
+        window.location.href = languageLinks[idx];
+      };
+    });
   </script>
-  <div id="languageDropdown">🌍
-  <div id="dropdownMenu">
-    <div class="dropdown-item" onclick="window.location.href='/about-me/es/'">Spanish</div>
-    ...
-  </div>
-</div>
-
-<script>
-  const languageDropdown = document.getElementById('languageDropdown');
-  const dropdownMenu = document.getElementById('dropdownMenu');
-
-  languageDropdown.onclick = function (event) {
-    event.stopPropagation();
-    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-  };
-
-  document.onclick = function (event) {
-    if (!languageDropdown.contains(event.target)) {
-      dropdownMenu.style.display = 'none';
-    }
-  };
-</script>
 </body>
 </html>
