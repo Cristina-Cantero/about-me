@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristina Cantero Muñoz - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Variable:opsz,wght@8..60,200..900&family=Indie+Flower&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #dad964;
+      --blue: #1e90d6;
+      --purple: #a97fd6;
+      --orange: #e6a04e;
+      --green: #1e6d5a;
+      --grey: #3d3c3a;
+      --black: #0e0e0e;
+      --white: #fff;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Source Serif Variable', serif;
+      background: var(--black) url('fondo.jpg') center center / cover no-repeat;
+      color: var(--white);
+      box-sizing: border-box;
+    }
+    body {
+      margin-top: 60px;
+    }
+    .navbar {
+      background: var(--yellow);
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .navbar-buttons {
+      display: flex;
+      gap: 32px;
+      justify-content: flex-start;
+      width: 100%;
+      margin-left: 0;
+      padding-left: 96px;
+    }
+    .navbar-button {
+      color: #fff;
+      background: #3d3c3a;
+      border: none;
+      font-size: 0.95rem;
+      min-width: 140px;
+      max-width: 220px;
+      padding: 10px 32px;
+      cursor: pointer !important;
+      transition: background 0.2s;
+      border-radius: 24px;
+      text-align: center;
+      margin: 0;
+      font-family: 'Source Serif Variable', serif;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    .navbar-button:hover {
+      background: #222;
+      color: var(--yellow);
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: var(--black);
+      min-height: 100vh;
+    }
+    .main-content {
+      flex: 2;
+      padding: 0 0 32px 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar {
+      background: url('fondocamisa.png') center center / cover no-repeat;
+      padding: 4px 16px 4px 16px;
+      min-width: 220px;
+      max-width: 260px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 438px;
+      margin-bottom: 0;
+      border-radius: 18px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.45);
+      margin-left: auto;
+      margin-right: 0;
+      text-align: center;
+    }
+    .header {
+      padding: 32px 32px 16px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      position: relative;
+    }
+    .header-yellow-line {
+      width: 100%;
+      height: 4px;
+      background: var(--yellow);
+    }
+    .header-photo {
+      background: var(--yellow);
+      border-radius: 8px;
+      padding: 8px 8px 0 8px;
+      width: 200px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .header-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+      border-radius: 4px;
+    }
+    .header-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 8px;
+      height: 100%;
+    }
+    .header-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 0px;
+      white-space: nowrap;
+    }
+    .header-subtitle {
+      font-size: 1.1rem;
+      color: var(--yellow);
+      margin-bottom: 8px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .header-title {
+      font-size: 1.1rem;
+      color: var(--yellow);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .header-contact {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .header-location {
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .header-highlight {
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      margin-top: 12px;
+      margin-bottom: 0;
+      display: inline-block;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin: 32px 0 16px 0;
+      border-bottom: 2px solid var(--white);
+      padding-bottom: 4px;
+    }
+    .experience-section {
+      padding-left: 32px;
+      padding-right: 0px;
+    }
+    .exp-block {
+      margin-bottom: 32px;
+    }
+    .exp-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 4px;
+      white-space: nowrap;
+    }
+    .exp-company {
+      font-size: 1rem;
+      color: var(--yellow);
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .exp-list {
+      font-size: 1rem;
+      color: var(--white);
+      margin-bottom: 8px;
+      margin-top: 0;
+      padding-left: 18px;
+    }
+    .exp-list li {
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .exp-highlight {
+      color: var(--yellow);
+      font-weight: 700;
+    }
+    .exp-bold {
+      font-weight: 700;
+    }
+    .exp-italic {
+      font-style: italic;
+    }
+    .education-section {
+      background: var(--yellow);
+      color: var(--black);
+      padding: 24px 32px;
+      margin-top: 32px;
+    }
+    .edu-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 4px;
+    }
+    .edu-list {
+      font-size: 1rem;
+      margin: 0;
+      padding-left: 18px;
+    }
+    .edu-list li {
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    /* Sidebar styles */
+    .sidebar-section {
+      margin-bottom: 10px;
+    }
+    .sidebar-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+      color: var(--white);
+      background: rgba(0,0,0,0.38);
+      border-radius: 18px;
+      padding: 5px 0;
+      border: none;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 1rem;
+      color: var(--white);
+      text-align: center;
+    }
+    .sidebar-list li {
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+    .tools { color: var(--blue); }
+    .frameworks { color: var(--purple); }
+    .skills { color: var(--orange); }
+    .languages { color: var(--yellow); }
+    .interests { color: var(--blue); }
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+      .sidebar {
+        max-width: 100%;
+        min-width: 0;
+        width: 100%;
+        flex: none;
+        order: 2;
+      }
+      .main-content {
+        order: 1;
+      }
+      .header, .experience-section, .education-section, .how-i-built-it-block {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+    [contenteditable="true"]:focus {
+      outline: 2px solid var(--yellow);
+      background: #222;
+    }
+    .sidebar-spacer {
+  height: 950px; /* Adjust this to control the empty space */
+}
+
+.sidebar-note {
+  font-size: 1rem;
+  color: var(--white);
+  text-align: center;
+  padding: 16px;
+}
+    .chat-with-cris-btn {
+      display: block;
+      margin-top: 12px;
+      margin-left: 0;
+      min-width: 220px;
+      width: fit-content;
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      border-radius: 24px;
+      padding: 12px 36px;
+      font-size: 1.1rem;
+      font-family: 'Source Serif Variable', serif;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      white-space: nowrap;
+    }
+    .chat-with-cris-btn:hover {
+      background: #fffbe6;
+      color: var(--black);
+    }
+    .navbar-emoji-dropdown {
+      position: relative;
+    }
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background: #3d3c3a;
+      border-radius: 8px;
+      padding: 8px 0;
+      margin-top: 8px;
+      min-width: 140px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 3000;
+    }
+    .language-dropdown .dropdown-item {
+      padding: 10px 24px;
+      color: #fff;
+      font-family: 'Source Serif Variable', serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .language-dropdown .dropdown-item:hover {
+      background: #222;
+    }
+    .exp-company-inline {
+      color: var(--yellow);
+      font-style: italic;
+      font-size: 1rem;
+      margin-left: 18px;
+      display: block;
+    }
+    /* Chat Modal Styles */
+    #chatModalBackdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+      align-items: center;
+      justify-content: center;
+    }
+    #chatModal {
+      background: #fff;
+      border-radius: 16px;
+      max-width: 400px;
+      width: 90vw;
+      height: 600px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    #chatModal iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 16px;
+    }
+    #chatModalClose {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #0e0e0e;
+      z-index: 10000;
+    }
+    .personal-details-block {
+      background: none;
+      color: var(--white);
+      padding: 32px 24px;
+      margin-top: 48px;
+      text-align: center;
+    }
+    .personal-details-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .personal-details-content div {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+    .personal-link {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .personal-link:hover {
+      text-decoration: underline;
+      color: var(--yellow);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    .cris-note {
+      font-family: 'Indie Flower', cursive;
+      font-size: 1.1rem;
+      color: #fffbe6;
+      background: none;
+      border-radius: 12px;
+      padding: 0;
+      margin-left: 0;
+      margin-top: 0;
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 320px;
+      box-shadow: none;
+    }
+.how-i-built-it-block {
+  background: #3d3c3a;
+  color: var(--white);
+  padding: 24px 32px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-left: 1px;
+  margin-right: 32px;
+  width: calc(100% - 32px);
+  border: 1px solid var(--white);
+  display: block; /* ✅ Correct for stacking elements vertically */
+}
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div style="display: flex; align-items: center; width: 100%; justify-content: space-between;">
+              <div class="navbar-buttons">
+          <button class="navbar-button" onclick="scrollToSection('header-section')">ABOUT ME</button>
+          <button class="navbar-button" onclick="scrollToSection('professional-experience')">WHAT I'VE DONE</button>
+          <button class="navbar-button" onclick="scrollToSection('education-training')">WHAT I'VE STUDIED</button>
+          <button class="navbar-button" onclick="scrollToSection('about-this-site')">ABOUT THIS SITE</button>
+          <button class="navbar-button" onclick="scrollToSection('reach-out')">CONTACT ME</button>
+        </div>
+      <div class="navbar-emoji-dropdown">
+        <div class="navbar-emoji" id="navbarWorldEmoji" style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 1.1rem; margin-left: 32px; user-select: none; cursor: pointer; gap: 6px; font-weight: 600;">
+          <span style="font-size: 2rem;">🇬🇧</span> <span style="color: var(--black);">EN</span> <span style="font-size: 0.9rem; margin-left: 2px; color: var(--black);">&#9660;</span>
+        </div>
+        <div class="language-dropdown" id="languageDropdownMenu">
+          <div class="dropdown-item">🇪🇸 ES</div>
+          <div class="dropdown-item">🇫🇷 FR</div>
+          <div class="dropdown-item">🇧🇷 PT</div>
+          <div class="dropdown-item">🇮🇹 IT</div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="main-content">
+      <div class="header" id="header-section" style="scroll-margin-top: 80px;">
+        <div class="header-photo">
+          <img src="cris.png" alt="Cristina Cantero Muñoz">
+        </div>
+        <div class="header-info">
+          <div class="header-name" contenteditable="true">HELLO! I'M CRIS 🤝</div>
+          <div class="header-subtitle" contenteditable="true">I have experience in AI, automation, and management of multilingual digital content.</div>
+          <div style="display: flex; align-items: center; gap: 6px; min-height: 90px;" id="chat-with-cris">
+            <button class="chat-with-cris-btn" id="chat-with-cris" name="chat-with-cris">CHAT WITH ME</button>
+            <span class="cris-note" style="background: none;">Well, it’s actually my digital extension, but she knows (almost) everything about me.</span>
+          </div>
+
+        </div>
+      </div>
+      <div class="experience-section">
+        <div class="section-title" contenteditable="true" id="professional-experience" style="scroll-margin-top: 80px;">PROFESSIONAL EXPERIENCE</div>
+        <div class="exp-block">
+          <div class="exp-title" contenteditable="true">AUTOMATION & AI LOCALIZATION MANAGER</div>
+          <ul class="exp-list" contenteditable="true">
+            <li>Professionalized the localization process with the integration of <span class="exp-bold">Crowdin</span>.</li>
+            <li>Built a <span class="exp-bold">GitHub script</span> syncing Crowdin human translations to Adapty Remote Config with JSON schema.</li>
+            <li>Developed <span class="exp-bold">customized GPTs</span> for each Squad with tailored copywriting and technical specifications, streamlining workflows for +15 employees and significantly reducing Support Team workload through chatbot integration.</li>
+            <li>Implemented <span class="exp-bold">custom Office scripts</span> integrating ChatGPT API for scalable automated localisation.</li>
+          </ul>
+          <div class="exp-company" contenteditable="true">Ideawise Group (Nov 2024-present)</div>
+        </div>
+        <div class="exp-block">
+            <div class="exp-title" contenteditable="true">PRODUCT OWNER</div>
+            <ul class="exp-list" contenteditable="true">
+              <li>Created and managed the <span class="exp-bold">backlog</span> for a 5-member squad in 2-week sprints.</li>
+              <li>Identified codependencies with <span class="exp-bold">stakeholders</span> of Design, Support, Data, Product, Dev, UA, Monetization.</li>
+              <li>Set and track quarterly <span class="exp-bold">OKRs</span>.</li>
+              <li>Defined the <span class="exp-bold">vision and strategy</span> of one of the products.</li>
+              <li>Tracked engagement, revenue and retention <span class="exp-bold">KPIs</span>.</li>
+            </ul>
+            <div class="exp-company" contenteditable="true">Ideawise Group (Jan 2024-Nov 2024)</div>
+          </div>
+        <div class="exp-block">
+          <div class="exp-title" contenteditable="true">LOCALISATION MANAGER</div>
+          <ul class="exp-list" contenteditable="true">
+            <li>Drove the expansion of 3 dating apps into 18 new markets resulting in <span class="exp-highlight" style="color: #fff;">+10% increase in signups</span> and <span class="exp-highlight" style="color: #fff;">+2% increase in ROI</span>.</li>
+            <li>Fully managed a team of <span class="exp-bold">12 translators</span> including sourcing, onboarding, task coordination, and performance follow-up to ensure timely and accurate deliveries.</li>
+            <li>Crafted a <span class="exp-bold">localization strategy</span> for replication across products, involving market research, and Firebase data analysis.</li>
+            <li>Hired, onboarded and mentored a Community Manager, and a Content Manager, and participated in the hiring process of a Product Designer and a Product Owner.</li>
+          </ul>
+          <div class="exp-company" contenteditable="true">Ideawise Group (Jan 2022-Jan 2024)</div>
+        </div>
+        <div class="exp-block">
+          <div class="exp-title" contenteditable="true">UX WRITER</div>
+          <ul class="exp-list" contenteditable="true">
+            <li>Localised 3 dating apps into ES (±30k strings) ensuring content consistency at high level (brand voice and values) and microlevel (button copy).</li>
+            <li>Wrote <span class="exp-bold">ASO copy</span>, including title, subtitle, description, promo text and kws for Android and iOS.</li>
+            <li>Created ±300 150-character <span class="exp-bold">pieces</span> of content in English.</li>
+          </ul>
+          <div class="exp-company" contenteditable="true">Ideawise Group (Sep 2021-Dec 2021)</div>
+        </div>
+        <div class="exp-block">
+          <div class="exp-title" contenteditable="true">(AUDIOVISUAL) TRANSLATOR</div>
+          <ul class="exp-list" contenteditable="true">
+            <li><span class="exp-bold">Subtitled</span> with cloud-based software (en-es)<br><span class="exp-italic">Nat Geo Wild, Disney+, Netflix</span></li>
+            <li><span class="exp-bold">Translated</span> through cloud-based platforms (en-es)<br><span class="exp-italic">Amazon, Glassdoor, UOC</span></li>
+            <li><span class="exp-bold">Volunteered</span> in the localization of the mobile app <span class="exp-italic">Apart of Me</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="education-section" id="education-training" style="scroll-margin-top: 80px;">
+        <div class="edu-title" contenteditable="true" style="scroll-margin-top: 80px;">EDUCATION AND TRAINING</div>
+        <ul class="edu-list" contenteditable="true">
+          <li><span style="font-weight: 600;">Prompt Engineering</span> (18 hours) Coursera, 2025</li>
+          <li><span style="font-weight: 600;">Certified Scrum Product Owner</span> (16 hours) 2024</li>
+          <li><span style="font-weight: 600;">UX Writing</span> (20 hours) UXER, 2022</li>
+          <li><span style="font-weight: 600;">Design of graphic products</span> (600 hours) Asedem, 2019-2020</li>
+          <li><span style="font-weight: 600;">Translation of web pages</span> (40 hours) Pimec, 2019</li>
+          <li><span style="font-weight: 600;">MSc Scientific, Technical and Medical Translation with Translation Technology</span>, Imperial College London, 2011-2012</li>
+          <li><span style="font-weight: 600;">Audiovisual Translation</span> (36 hours) Imperial College London, 2011</li>
+          <li><span style="font-weight: 600;">B.A. Translation and Interpreting</span>, University of Cordoba, 2006-2010</li>
+        </ul>
+      </div>
+  <div class="experience-section" id="about-this-site" style="margin-top: 48px; scroll-margin-top: 80px;">
+          <div class="how-i-built-it-block">
+        <div class="edu-title" contenteditable="true" style="border-color: var(--white);">HOW I BUILT THIS SITE</div>
+        <div class="about-this-site-block" style="margin-top: 20px;">
+          <p style="margin-bottom: 16px; font-size: 1.1rem;">I wanted my CV to be a bit more dynamic and interactive than the usual PDF, so I built a small website to showcase my profile—and added a few features to make it feel like a proper product. Here's how I did it:</p>
+          
+          <div style="margin-bottom: 20px;">
+            <h4 style="font-weight: 600; margin-bottom: 2px; color: var(--yellow); font-size: 1rem;">➡ Building the site with Cursor</h4>
+            <p style="margin-bottom: 0;">I built the site as a local HTML file using Cursor, an AI-powered code editor designed to help build software faster (even websites!). The file runs locally during development.</p>
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <h4 style="font-weight: 600; margin-bottom: 2px; color: var(--yellow); font-size: 1rem;">➡ Editing the visuals with Photoshop</h4>
+            <p style="margin-bottom: 0;">To get the design right, I edited my profile picture in Photoshop—removed the background and added the yellow background I wanted to match the site's color theme. Nothing too fancy, but it helps the page pop.</p>
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <h4 style="font-weight: 600; margin-bottom: 2px; color: var(--yellow); font-size: 1rem;">➡ Taking it online with GitHub</h4>
+            <p style="margin-bottom: 0;">Once the site looked good locally, I pushed the code to GitHub and hosted it via GitHub Pages. This allowed me to have a live version that anyone can visit.</p>
+          </div>
+          
+          <div style="margin-bottom: 20px;">
+            <h4 style="font-weight: 600; margin-bottom: 2px; color: var(--yellow); font-size: 1rem;">➡ Making it multilingual with Crowdin</h4>
+            <p style="margin-bottom: 0;">To support multiple languages, I integrated the site with Crowdin—the localization platform. I set it up so that any translations added in Crowdin are automatically synced to GitHub. The site has a language selector, so you can switch languages instantly.</p>
+          </div>
+          
+          <div style="margin-bottom: 0;">
+            <h4 style="font-weight: 600; margin-bottom: 2px; color: var(--yellow); font-size: 1rem;">➡ Adding a personal AI assistant with Relevance AI</h4>
+            <p style="margin-bottom: 0;">Here's the fun part: when someone clicks the "Chat with me" button on the site, it opens a conversation with a custom AI agent—built with Relevance AI. This bot is basically a digital version of me. I trained it with information about my professional background and a few personal interests, so it can answer questions and give people a feel for who I am.</p>
+          </div>
+        </div>
+      </div>
+  </div>
+    </div>
+    <div class="sidebar">
+      <div class="sidebar-section">
+        <br><br><br>
+        <div class="sidebar-title tools" contenteditable="true">TOOLS</div>
+        <ul class="sidebar-list" contenteditable="true">
+          <li>Jira</li>
+          <li>Crowdin</li>
+          <li>Power Automate</li>
+          <li>GitHub</li>
+          <li>Confluence</li>
+          <li>AppTweak</li>
+          <li>Photoshop</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title frameworks" contenteditable="true">FRAMEWORKS</div>
+        <ul class="sidebar-list" contenteditable="true">
+          <li>Scrum</li>
+          <li>Self-management</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title skills" contenteditable="true">SKILLS</div>
+        <ul class="sidebar-list" contenteditable="true">
+          <li>Leadership</li>
+          <li>Problem-solving</li>
+          <li>Initiative</li>
+          <li>Communication</li>
+          <li>Creativity</li>
+          <li>Self-learning</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title languages" contenteditable="true">LANGUAGES</div>
+        <ul class="sidebar-list" contenteditable="true">
+          <li>Spanish 👌</li>
+          <li>English 👌</li>
+          <li>Catalan 👍</li>
+          <li>French 🤏</li>
+          <li>Italian 🤏</li>
+        </ul>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-title interests" contenteditable="true">INTERESTS</div>
+        <ul class="sidebar-list" contenteditable="true">
+          <li>Painting</li>
+          <li>Sculpture</li>
+          <li>DIY Technology</li>
+          <li>Guitar</li>
+        </ul>
+      </div>
+      
+      <div class="sidebar-spacer"></div>
+      
+      <div class="sidebar-note">
+        Did you notice that I took a photo of the shirt that I'm wearing in the photo and used it as a background for this block?
+      </div>
+  </div>
+  </div>  
+      <div class="personal-details-block" id="reach-out" style="scroll-margin-top: 80px; margin-top: 80px;">
+      <div style="border: 3px solid var(--yellow); border-radius: 50%; padding: 50px; display: inline-block; margin: 0 auto; text-align: center; width: 350px; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="personal-details-title">Cristina Cantero Muñoz</div>
+        <div class="personal-details-content">
+          <div><a href="tel:+34660832079" class="personal-link">+34 660 832 079</a></div>
+          <div><a href="mailto:cristina.cantero.m@gmx.com" class="personal-link">cristina.cantero.m@gmx.com</a></div>
+          <div><a href="https://www.google.com/maps/search/?api=1&query=Glòries,+08013,+Barcelona" target="_blank" class="personal-link">Glòries, 08013, Barcelona</a></div>
+        </div>
+      </div>
+    </div>
+  <!-- Chat Modal with Backdrop -->
+  <div id="chatModalBackdrop">
+    <div id="chatModal">
+      <button id="chatModalClose">&times;</button>
+      <iframe
+        src="https://app.relevanceai.com/agents/d7b62b/027f3453-174b-437d-a1bd-cca1228ab6f2/e924eddf-ff07-4388-8fd2-1c49b20a505b/embed-chat?primary_color=%23dad964&bubble_style=agent&hide_logo=true&hide_description=false&hide_file_uploads=true&hide_conversation_list=true&input_placeholder_text=Type+your+message..."
+        allow="microphone"
+        style="width: 100%; height: 100%; border: none; border-radius: 16px;">
+      </iframe>
+    </div>
+  </div>
+  <script>
+    const worldEmoji = document.getElementById('navbarWorldEmoji');
+    const langDropdown = document.getElementById('languageDropdownMenu');
+    worldEmoji.onclick = function(event) {
+      event.stopPropagation();
+      langDropdown.style.display = langDropdown.style.display === 'block' ? 'none' : 'block';
+    };
+    document.onclick = function(event) {
+      if (!langDropdown.contains(event.target) && event.target !== worldEmoji) {
+        langDropdown.style.display = 'none';
+      }
+    };
+    // Chat Modal logic
+    const chatBtn = document.getElementById('chat-with-cris');
+    const chatModal = document.getElementById('chatModal');
+    const chatBackdrop = document.getElementById('chatModalBackdrop');
+    const closeModal = document.getElementById('chatModalClose');
+    if (chatBtn) {
+      chatBtn.onclick = function () {
+        chatBackdrop.style.display = 'flex';
+      };
+    }
+    if (closeModal) {
+      closeModal.onclick = function () {
+        chatBackdrop.style.display = 'none';
+      };
+    }
+    window.onclick = function (event) {
+      if (event.target === chatBackdrop) {
+        chatBackdrop.style.display = 'none';
+      }
+    };
+    
+    // Navigation scroll function
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html> 
